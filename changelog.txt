@@ -1,0 +1,32 @@
+=======     ++    CHANGELOG    ++    =========
+
+====== Version 2.0 ======
+- 13-Okt-2022: hvd, changed Fs (sampling frequency) to the correct 130Hz, from 128)
+- 27-Feb-2023: hvd, included an option for analyzing the RR-intervals that were manually annotated in kubios (.csv files that are exported)
+
+====== Version 2.1 ======
+- 27-Feb-2023: hvd, changed the entire metric for the evaluation of coupling or not. Now the HBC is based on the log-transformed power 
+                        in the 0.0625Hz band computed with 10 cycles. The best location is 1) the location that has the most intensities with an HBC equal 
+                        to or above 9.56, 2) and if this number is the same for more locations the highest average HBC over the intensities that surpass 
+                        the threshold.
+                        Bugfixes.
+                        Changed visualizations; 
+                        - The meanHR data is filtered between highpass = 0.01 and lowpass = 0.115 Hz, and always plotted in the same scale for all measurements and clients
+                        - scale of TFRs is based on the first measurement for comparison. 
+                        - Threshold is depicted in the meanTFR and meanTFR/Intensity plot. 
+                        - For the TFR high frequency resolution and the end-report a HBC value <= 9.56 (the threshold) is masked, and depicted in grey values.
+                        
+===== HBC_Analyzer Version 0.1 =====
+
+-6-Okt-2023: Included the possibility to input own protocol parameters
+
+===== HBC_Analyzer Version 0.2 =====
+
+- 08-Jan-2024: hvd,  - adapted the kubios export readout
+                        - also fixed the sampling rate to 130 Hz, since higher sampling rates seem to have an unforseen effect on the TFR computations, and make the data uncomparable to the original data, this needs to be checked out and fixed.
+- 18-Jan-2024: hvd, - revived .txt file processing, included a warning that analyisis is only valid for the polar H10 device. 
+                        - samplingrate stays fixed to 130 Hz
+
+                        
+            
+
